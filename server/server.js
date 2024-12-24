@@ -31,13 +31,6 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({
     origin:'https://ecommerce-project-frontend-three.vercel.app',
     methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Cache-Control",
-      "Expires",
-      "Pragma",
-    ],
     credentials: true,
   })
 );
