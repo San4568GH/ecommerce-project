@@ -29,11 +29,21 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-    origin:'https://ecommerce-project-frontend-three.vercel.app',
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true,
-  })
-);
+  origin: 'https://ecommerce-project-frontend-three.vercel.app', 
+  methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
+  allowedHeaders: [ // Allowed request headers
+      "Content-Type",
+      "Authorization",
+      "Cache-Control",
+      "Expires",
+      "Pragma"
+  ],
+  credentials: true // Allow credentials (cookies, auth headers)
+}));
+
+
+app.options('*', cors());
+
 
 app.use(cookieParser());
 app.use(express.json());
