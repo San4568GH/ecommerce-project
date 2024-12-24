@@ -28,7 +28,7 @@ mongoose
 const app = express();
 const PORT = process.env.PORT || 5000;
 const corsOptions= {
-  origin: 'https://ecommerce-project-frontend-three.vercel.app', 
+  origin: ['https://ecommerce-project-frontend-three.vercel.app'], 
   methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
   allowedHeaders: [ // Allowed request headers
       "Content-Type",
@@ -39,7 +39,10 @@ const corsOptions= {
       "Access-Control-Allow-Methods",
       , "Access-Control-Request-Headers"
   ],
-  credentials: true // Allow credentials (cookies, auth headers)
+  credentials: true, // Allow credentials (cookies, auth headers)
+
+  enablePreflight: true
+
 };
 
 app.use(cors(corsOptions()));
